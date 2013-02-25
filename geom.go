@@ -153,6 +153,12 @@ func NewRect(p Point, lengths []float64) (*Rect, error) {
 	return &Rect{p, q}, nil
 }
 
+// NewRectFromPoints returns a rect spanned between min and max points.
+// Caution: you have to enforce min[i] <= max[i] for all i yourself!
+func NewRectFromPoints(min, max Point) *Rect {
+	return &Rect{min, max}
+}
+
 // size computes the measure of a rectangle (the product of its side lengths).
 func (r *Rect) size() float64 {
 	size := 1.0
